@@ -8,7 +8,13 @@ export default function Header() {
     return (
         <div>
             <h1>Funko Pop Para Los Niños!</h1>
-            <Link variant="outline-light" to={`/AddFunko`}><Button id='buttonNav' variant="outline-light"><img src={Add} alt="añadir funko"/><p>  Funko</p></Button></Link>
+            <Link style={{ textDecoration: 'none' }} variant="outline-light" to={`/newFunko`}>
+                <Button id='buttonNav' variant="outline-light">
+                    <img src={Add} alt="añadir funko"/>
+                    <p> Funko </p>
+                </Button>
+            </Link>
+
         </div>
     )
 }

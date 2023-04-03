@@ -36,11 +36,11 @@ function AddFunko() {
 
   return (
     <>
-    <div id="myForm">
+    <div id="myForm" style={{height:'57vh'}}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
           <br></br>
-          <label className='name' htmlFor="name" id="name">¿Cuál es el funko que quieren los niños?</label>
+          <label style={{fontSize: '50px'}} className='name' htmlFor="name" id="name">¿Cuál es el funko que quieren los niños?</label>
           <br></br>
           <input id="name" placeholder='Anota el funko que quieren los niños' {...register("name", { required: true })} />
           {errors.name && <span>Indica el Funko que hay que comprar</span>}

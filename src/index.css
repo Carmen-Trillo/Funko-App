@@ -5,6 +5,12 @@
   font-weight: normal;
 }
 @font-face {
+  font-family: "Shitzu";
+  src: url("./assets/font/Shitzu_Personal.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
   font-family: "Funny";
   src: url("./assets/font/FunnyKid.ttf") format("truetype");
   font-style: normal;

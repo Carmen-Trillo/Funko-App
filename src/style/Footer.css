@@ -1,0 +1,40 @@
+#footer {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  padding: 1vh;
+  height: 7vh;
+  margin-top: 5vh;
+}
+#footer p {
+  font-family: "Gembool";
+  color: white;
+}
+#footer img {
+  width: 1.5vw;
+  margin-left: 0.5vw;
+}
+
+@media (min-width: 320px) and (max-width: 760px) {
+  #footer {
+    height: 20vw;
+    display: flex;
+    flex-direction: row;
+  }
+  #social {
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    text-align: center;
+    margin-left: 3vw;
+  }
+  #social img {
+    width: 4vw;
+    margin-left: 0;
+  }
+  #copyright {
+    width: 80vw;
+    margin-left: 5vw;
+    font-size: 12px;
+  }
+}/*# sourceMappingURL=Footer.css.map */
