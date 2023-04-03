@@ -6,6 +6,7 @@ import '../../src/index.css';
 const Funkos = () => { 
     return (
     <>
+    <h2>Listado de Funkos</h2>
     <FunkoList />
     </>
     )

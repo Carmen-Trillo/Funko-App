@@ -10,6 +10,18 @@
   font-style: normal;
   font-weight: normal;
 }
+@font-face {
+  font-family: "Gembool";
+  src: url("./assets/font/Gembool.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Professor";
+  src: url("./assets/font/Professor.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
 * {
   box-sizing: border-box;
   padding: 0;

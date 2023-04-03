@@ -2,19 +2,20 @@ import FunkoService from "../service/funkoService";
 
 export const FunkoHandler = {
     addFunko(newFunko){
-        // console.log(newFunko);
+        console.log(newFunko);
         if (!newFunko) {
             return;
         }
 
         let funko = {
             "name": newFunko.name,
-            "img": newFunko.picture,
+            "img": newFunko.img,
             "bought": false,
             "date": new Date(),
             "id": ""
 
         }
+        console.log(funko)
         return FunkoService.submitFunko(funko);
     },
     loadFunkos(){
@@ -33,7 +34,7 @@ export const FunkoHandler = {
 
         let updatedFunkoStructure = {
             "name": updatedFunko.name,
-            "img": updatedFunko.picture,
+            "img": updatedFunko.img,
             "bought": updatedFunko.bought,
             "date": new Date(),
             "id": updatedFunko.id,
@@ -46,7 +47,7 @@ export const FunkoHandler = {
         return { funkos };
     },
     async fetchFunko({ params }) {
-        const funko = await FunkoHandler.loadFunkho(params.id);
+        const funko = await FunkoHandler.loadFunko(params.id);
         return { funko };
     },
 }

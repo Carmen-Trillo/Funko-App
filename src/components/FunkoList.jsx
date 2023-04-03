@@ -3,7 +3,6 @@ import Borrar from '../assets/img/borrar.png';
 import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import FunkoHandler from '../handler/funkoHandler';
-import Badge from 'react-bootstrap/Badge';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import { useState, useEffect } from "react";
@@ -16,17 +15,23 @@ export default function FunkoList() {
 
     useEffect(() => {
         getData();
-      }, []);
+    }, []);
 
     const getData = async () => {
         const data = await FunkoHandler.loadFunkos();
-        setFunkos(data);
-      };
+        setFunkos(data.map(funko => ({ ...funko, bought: false }))); // Initialize bought state to false for each funko
+    };
 
-      const deleteShort = async (id) => {
+    const deleteShort = async (id) => {
         setFunkos(funkos.filter((p) => p.id !== id));
         await FunkoHandler.deleteFunko(id);
-      };
+    };
+
+    const toggleBought = async (id, bought) => {
+        const updatedFunko = { id, bought };
+        await FunkoHandler.updateFunko(id, updatedFunko);
+        setFunkos(funkos.map(funko => funko.id === id ? { ...funko, bought } : funko));
+    };
 
     console.log(funkos)
 
@@ -54,10 +59,20 @@ export default function FunkoList() {
                                     </Link>
                                     <Button className='buttonCard' onClick={() => deleteShort(item.id)} variant="outline-light"><img className='icons' src={Borrar} alt="eliminar funko"/></Button>
                                 </div>
+                                <div className='check'>
+                                    <label id='pCheck' htmlFor={`bought-${item.id}`}>Comprado</label>
+                                    <input
+                                        type="checkbox"
+                                        id={`bought-${item.id}`}
+                                        checked={item.bought}
+                                        onChange={() => toggleBought(item.id, !item.bought)}
+                                    />
+                                </div>
                             </div>
-                                <div>
+                                <div id='photo'>
                                     <img src={item.img} alt={item.name} />
                                 </div>
+                                
                             
                         </ListGroup.Item>
                     </ListGroup>

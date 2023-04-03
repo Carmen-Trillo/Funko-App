@@ -2,6 +2,8 @@ import { useForm } from 'react-hook-form';
 import React from 'react';
 import FunkoHandler from '../handler/funkoHandler';
 import { Link } from 'react-router-dom';
+import '../../src/index.css';
+import "../style/Form.css"
 
 function AddFunko() {
   const { register, handleSubmit, formState: { errors }, setValue } = useForm();
@@ -12,21 +14,34 @@ function AddFunko() {
     reader.readAsDataURL(picture);
     reader.onload = () => {
       setValue("img", reader.result);
+      console.log(picture)
     };
   }
 
+  const [message, setMessage] = React.useState("");
+  const [showMessage, setShowMessage] = React.useState(false);
+
+
   const onSubmit = (data) => {
-    FunkoHandler.addFunko(data)
-    console.log(data)
-  }
+    FunkoHandler.addFunko(data);
+    setMessage("El Funko ha sido añadido a la lista.");
+    setShowMessage(true);
+    setValue("name", "");
+    setValue("img", "");
+  };
+
+  const handleCloseMessage = () => {
+    setShowMessage(false);
+  };
 
   return (
     <>
     <div id="myForm">
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
-
-          <label htmlFor="name" id="name">¿Cuál es el funko?</label>
+          <br></br>
+          <label className='name' htmlFor="name" id="name">¿Cuál es el funko que quieren los niños?</label>
+          <br></br>
           <input id="name" placeholder='Anota el funko que quieren los niños' {...register("name", { required: true })} />
           {errors.name && <span>Indica el Funko que hay que comprar</span>}
 
@@ -42,12 +57,18 @@ function AddFunko() {
 
           <div id="button">
           <input id="submit" type="submit" value="GUARDAR" />
-          <Link to="/landing"><input id="return" type="button" value="VOLVER" /></Link>
+          <Link to="/"><input id="return" type="button" value="VOLVER" /></Link>
           </div>
     
         </fieldset>
       </form>
     </div>
+    {showMessage && (
+      <div>
+        {message}
+        <button onClick={handleCloseMessage}>Cerrar</button>
+      </div>
+)}
 
     </>
   );

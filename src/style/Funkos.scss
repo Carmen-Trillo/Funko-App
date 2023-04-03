@@ -11,23 +11,30 @@ $blue: #1193cd;
 }
 
 .element{
-    
-    width: 30vw;
+    width: 40vw;
     display: flex;
     flex-direction: row;
-    
+
 }
 .container {
-    width: 20vw;
-    margin-left: 1vw;
+    width: 100%;
     padding: 0;
+
     h3{
         font-family: 'KG';
         font-weight: lighter;
         margin-bottom: 1vh;
-        font-size: xx-large;
-        margin-top: -1vh;
+        font-size: x-large;
+        margin-top: -6vh;
     }       
+}
+
+h2{
+    font-family: 'Professor';
+    font-size: xx-large;
+    color: white;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
 }
 
 .icons{
@@ -49,4 +56,62 @@ $blue: #1193cd;
 img{
     width: 10vw;
     margin-top: 0;
+}
+
+.check{
+    margin-left: 2vw;
+    margin-top: 2vh;
+}
+
+label{
+    font-family: 'Gembool';
+    font-size: x-large;
+}
+#pCheck{
+    color:black;
+}
+
+input[type="checkbox"]{
+    width: 2vw;
+  }
+
+@media (min-width: 320px) and (max-width: 760px){
+    #card{
+        width: 80vw;
+    }
+
+    .element{
+        width: 30vw;
+        h3{
+            font-size: medium;
+        }
+    }
+    .container {
+        width: 100vw;
+        margin-left: -18vw;
+        margin-right: 4vw;
+    }
+
+    #photo{
+        width: 10vw;
+    }
+    img{
+        width: 20vw;
+        margin-top: 0;
+    }
+    .icons{
+        width: 4vw;
+    }
+    
+    .buttonCard{
+        width: 7vw;
+        height: 7vw;
+    }
+    input[type="checkbox"]{
+        margin-left: 2vw;
+      }
+
+    .check{
+        margin-top: 0;
+    }
 }
