@@ -5,35 +5,28 @@ import Edit from "../pages/Edit";
 import Funkos from "../pages/Funkos";
 import LayoutPublic from "../layout/LayoutPublic";
 
-
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <LayoutPublic />,
         children: [
-                    {
-                        index: true,
-                        element: <Funkos />,
-                        loader: fetchFunkos,
-                    },
-                    {
-                        path: '/newFunko',
-                        element: <NewFunko />,
-                    },
-                    /* {
-                        path: '/detailedFunko/:id',
-                        element: <DetailedFunko/>,
-                        loader: fetchFunko,
-                    },   */  
-                    {
-                        path: '/editFunko/:id',
-                        element: <Edit />,
-                        loader: fetchFunko
-                    },    
-                ]
+            {
+                index: true,
+                element: <Funkos />,
+                loader: fetchFunkos,
             },
+            {
+                path: '/newFunko',
+                element: <NewFunko />,
+            },
+            {
+                path: '/editFunko/:id',
+                element: <Edit />,
+                loader: fetchFunko
+            },    
         ]
-);
+    },
+]);
 
 async function fetchFunkos() {
     const funkos = await FunkoHandler.loadFunkos();
