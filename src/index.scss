@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'KG';
+    src: url('./assets/font/KGSummer.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Funny';
+    src: url('./assets/font/FunnyKid.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+$blue: #1193cd;
+
+
+* {
+    box-sizing: border-box;
+    padding:0;
+    margin:auto;
+}
+
+body{
+    text-align: center;
+    background-color: $blue;
+    margin:auto;
+
+}
+
+@media (min-width: 320px) and (max-width: 760px){
+    
+}

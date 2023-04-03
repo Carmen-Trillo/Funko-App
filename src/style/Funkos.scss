@@ -1,0 +1,52 @@
+$blue: #1193cd;
+
+#card{
+    width: 50vw;
+    text-align: center;
+    background-color: white;
+    border: $blue solid 2px;
+    border-radius: 15px;
+    padding: 1vh 2vw;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+}
+
+.element{
+    
+    width: 30vw;
+    display: flex;
+    flex-direction: row;
+    
+}
+.container {
+    width: 20vw;
+    margin-left: 1vw;
+    padding: 0;
+    h3{
+        font-family: 'KG';
+        font-weight: lighter;
+        margin-bottom: 1vh;
+        font-size: xx-large;
+        margin-top: -1vh;
+    }       
+}
+
+.icons{
+    width: 2vw;
+}
+
+.buttonCard{
+    width: 3vw;
+    height: 3.2vw;
+    margin-left: 1vw;
+    text-align: center;
+    margin-top: 0;
+    background-color: rgb(231, 231, 231);
+    border: $blue solid 1px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+}
+
+img{
+    width: 10vw;
+    margin-top: 0;
+}

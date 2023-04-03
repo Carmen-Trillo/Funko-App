@@ -1,9 +1,10 @@
-import { Outlet, useNavigation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 /* import Header from "../components/Header";
 import Footer from "../components/Footer"; */
+import '../../src/index.css';
 
-function Root() {
-    const navigation = useNavigation()
+const LayoutPublic = () => {
+
     return (
         <>
             {/* <Header /> */}
@@ -11,6 +12,6 @@ function Root() {
             {/* <Footer /> */}
         </>
     );
-}
+};
 
-export default Root;
+export default LayoutPublic;

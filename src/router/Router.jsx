@@ -1,11 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
-import FunkoHandler from '../handler/KunkoHandler';
+import FunkoHandler from '../handler/funkoHandler';
+import NewFunko from "../pages/NewFunko";
+import Edit from "../pages/Edit";
+import Funkos from "../pages/Funkos";
+import LayoutPublic from "../layout/LayoutPublic";
 
 
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <Root />,
+        element: <LayoutPublic />,
         children: [
                     {
                         index: true,
@@ -23,7 +27,7 @@ export const router = createBrowserRouter([
                     },   */  
                     {
                         path: '/editFunko/:id',
-                        element: <EditFunko />,
+                        element: <Edit />,
                         loader: fetchFunko
                     },    
                 ]
