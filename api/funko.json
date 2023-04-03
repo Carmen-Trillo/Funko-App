@@ -1,0 +1,11 @@
+{
+  "funkhos": [
+    {
+      "name": "ET teléfono",
+      "img": "../src/assets/img/ET.jpg",
+      "bought": false,
+      "date": "2023-04-03T12:23:36.619Z",
+      "id": 1
+    }
+  ]
+}
