@@ -10,6 +10,7 @@ import '../../src/index.css';
 import "../style/Funkos.css"
 
 export default function FunkoList() {
+    //useState permite tener variables de estado en componentes funcionales
     const {id} = useParams();
     const [funkos, setFunkos] = useState([]);
 
@@ -17,16 +18,19 @@ export default function FunkoList() {
         getData();
     }, []);
 
+    //llamamos al método GET de la función Handler
     const getData = async () => {
         const data = await FunkoHandler.loadFunkos();
         setFunkos(data.map(funko => ({ ...funko, bought: false }))); // Initialize bought state to false for each funko
     };
 
+    //llamamos al método DELETE de la función Handler
     const deleteShort = async (id) => {
         setFunkos(funkos.filter((p) => p.id !== id));
         await FunkoHandler.deleteFunko(id);
     };
 
+    //llamamos al método PATCH de la función Handler para actualizar el elemento Comprado en el checkbox
     const toggleBought = async (id, bought) => {
         const updatedFunko = { id, bought };
         await FunkoHandler.updateFunko(id, updatedFunko);

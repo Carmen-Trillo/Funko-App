@@ -6,8 +6,10 @@ import '../../src/index.css';
 import "../style/Form.css"
 
 function AddFunko() {
+  //Estoy usando useForm de react, lo que hace que determinadas cosas vengan cargadas por defecto en la siguiente línea
   const { register, handleSubmit, formState: { errors }, setValue } = useForm();
 
+  //Identifica el evento de insertar la imagen, con id="img" y la convierte en imagen base64 para que la pueda gestionar correctamente la API. En el formulario llamamos a esta función dentro del input de la imagen.
   const handleImageChange = (event) => {
     const picture = event.target.files[0];
     const reader = new FileReader();
@@ -18,10 +20,11 @@ function AddFunko() {
     };
   }
 
+  //Para los mensajes que se muestran tras insertar los elementos
   const [message, setMessage] = React.useState("");
   const [showMessage, setShowMessage] = React.useState(false);
 
-
+  //Definimos onSubmit con la petición de Add a la función Handler y lo demás es para mostrar el mensaje y para la carga de la imagen y el nombre del Funko. En el formulario llamamos a OnSubmit
   const onSubmit = (data) => {
     FunkoHandler.addFunko(data);
     setMessage("El Funko ha sido añadido a la lista.");
@@ -30,6 +33,7 @@ function AddFunko() {
     setValue("img", "");
   };
 
+  //Para la función de cerrar el mensaje de Funko guardado
   const handleCloseMessage = () => {
     setShowMessage(false);
   };

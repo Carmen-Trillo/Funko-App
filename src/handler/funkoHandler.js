@@ -1,8 +1,9 @@
 import FunkoService from "../service/funkoService";
 
 export const FunkoHandler = {
+    //Para interpretar los datos que entran desde el formlario y llevarlos al objeto de la api
     addFunko(newFunko){
-        console.log(newFunko);
+        //console.log(newFunko);
         if (!newFunko) {
             return;
         }
@@ -18,15 +19,19 @@ export const FunkoHandler = {
         console.log(funko)
         return FunkoService.submitFunko(funko);
     },
+    //Para solicitar la consulta de todos los elementos
     loadFunkos(){
         return FunkoService.getFunkos();
     },
+    //Para solicitar la consulta de un único elemento por su id
     loadFunko(id) {
         return FunkoService.getFunko(id);
     },
+    //Para eliminar un único elemento por su id
     deleteFunko(id){
         return FunkoService.deleteFunko(id);
     },
+    //Para interpretar los datos que entran desde el formlario y llevarlos al objeto de la api
     updateFunko(id, updatedFunko){
         if (!updatedFunko) {
             return;
@@ -41,14 +46,6 @@ export const FunkoHandler = {
         }
 
         return FunkoService.updateFunko(id, updatedFunkoStructure);
-    },
-    async fetchFunkos() {
-        const funkos = await FunkoHandler.loadFunkos();
-        return { funkos };
-    },
-    async fetchFunko({ params }) {
-        const funko = await FunkoHandler.loadFunko(params.id);
-        return { funko };
     },
 }
 

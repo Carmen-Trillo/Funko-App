@@ -7,6 +7,7 @@ import '../../src/index.css';
 import "../style/Form.css"
 
 function EditFunko() {
+    //Primero cargamos los datos del elemento por su id y después realizamos las funciones similares a las de AddFunko
     const { funko } = useLoaderData();
     const id = funko.id;
     const [name, setName] = useState(funko.name);
